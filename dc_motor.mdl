@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.2"
+    ComputedModelVersion    "1.4"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,7 +31,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1.0, 28.0, 1364.0, 667.0]
+      Location		      [-1.0, 0.0, 1368.0, 697.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -40,7 +40,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -57,12 +57,12 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1330.0, 528.0]
 	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
+	Offset			[-279.01478062101774, -77.750000000000227]
       }
     }
   }
-  PhysicalModelingChecksum "1910818969"
-  PhysicalModelingParameterChecksum "1881084108"
+  PhysicalModelingChecksum "4110414115"
+  PhysicalModelingParameterChecksum "3219574014"
   PhysicalModelingProducts "Power_System_Blocks"
   Created		  "Tue Jan 03 16:12:21 2017"
   Creator		  "zpwl83"
@@ -70,9 +70,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "zpwl83"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jan 03 21:51:02 2017"
-  RTWModifiedTimeStamp	  405369969
-  ModelVersionFormat	  "1.%<AutoIncrement:2>"
+  LastModifiedDate	  "Sat Jan 07 21:28:50 2017"
+  RTWModifiedTimeStamp	  405725249
+  ModelVersionFormat	  "1.%<AutoIncrement:4>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -115,7 +115,7 @@ Model {
     $ObjectID		    6
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "dc_motor"
-    overrideMode_	    [0U]
+    overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
@@ -184,7 +184,7 @@ Model {
 	  $ObjectID		  8
 	  Version		  "1.14.2"
 	  StartTime		  "0.0"
-	  StopTime		  "3.0"
+	  StopTime		  "5"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -736,7 +736,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 0, 0, 1082, 669 ] 
+      ConfigPrmDlgPosition     [ 0, 0, 1084, 696 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -857,7 +857,7 @@ Model {
   }
   System {
     Name		    "dc_motor"
-    Location		    [1, 28, 1365, 695]
+    Location		    [-1, 0, 1367, 697]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -871,13 +871,34 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "17"
+    SIDHighWatermark	    "28"
     Block {
       BlockType		      Reference
-      Name		      "Breaker"
+      Name		      "B1"
+      SID		      "18"
+      Ports		      [1, 0, 0, 0, 0, 1, 1]
+      Position		      [175, 55, 230, 95]
+      ZOrder		      19
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Elements/Breaker"
+      SourceType	      "Breaker"
+      ContentPreviewEnabled   off
+      InitialState	      "0"
+      SwitchingTimes	      "[1/60  5/60]"
+      External		      on
+      BreakerResistance	      "0.01"
+      SnubberResistance	      "1e6"
+      SnubberCapacitance      "inf"
+      Measurements	      "None"
+      MoreParameters	      on
+      NoBreakLoop	      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "B2"
       SID		      "5"
       Ports		      [1, 0, 0, 0, 0, 1, 1]
-      Position		      [395, 60, 450, 100]
+      Position		      [275, 55, 330, 95]
       ZOrder		      6
       LibraryVersion	      "1.2362"
       SourceBlock	      "powerlib/Elements/Breaker"
@@ -898,26 +919,26 @@ Model {
       Name		      "DC Machine"
       SID		      "2"
       Ports		      [1, 1, 0, 0, 0, 2, 2]
-      Position		      [525, 87, 620, 183]
+      Position		      [380, 82, 475, 178]
       ZOrder		      3
       LibraryVersion	      "1.2362"
       SourceBlock	      "powerlib/Machines/DC Machine"
       SourceType	      "DC machine"
       ContentPreviewEnabled   off
-      PresetModel	      "01: 5HP 240V 1750RPM Field:300V"
+      PresetModel	      "No"
       MechanicalLoad	      "Torque TL"
       FieldType		      "Wound"
       ShowDetailedParameters  on
       MeasurementBus	      off
-      RLa		      "[2.581 0.028]"
-      RLf		      "[281.2 156]"
-      Laf		      "0.9483"
+      RLa		      "[1.5 0.012]"
+      RLf		      "[240 120]"
+      Laf		      "1.65"
       MachineConstant	      "Torque constant (N.m/A)"
       Ke		      "1.8"
       Kt		      "1.8"
-      J			      "0.02215"
-      Bm		      "0.002953"
-      Tf		      "0.5161"
+      J			      "0.5"
+      Bm		      "0"
+      Tf		      "0"
       w0		      "1"
       Ifinit		      "1"
       TsPowergui	      "0"
@@ -928,7 +949,7 @@ Model {
       Name		      "Demux"
       SID		      "13"
       Ports		      [1, 4]
-      Position		      [715, 51, 720, 154]
+      Position		      [535, 46, 540, 149]
       ZOrder		      14
       ShowName		      off
       DisplayOption	      "bar"
@@ -958,53 +979,23 @@ Model {
       }
     }
     Block {
-      BlockType		      Reference
-      Name		      "Field Supply = 300 V"
-      SID		      "11"
-      Ports		      [0, 0, 0, 0, 0, 1, 1]
-      Position		      [555, 265, 590, 285]
-      ZOrder		      12
-      BlockMirror	      on
-      LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Electrical\nSources/DC Voltage Source"
-      SourceType	      "DC Voltage Source"
-      ContentPreviewEnabled   off
-      Amplitude		      "300"
-      Measurements	      "None"
-    }
-    Block {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "15"
-      Position		      [555, 30, 585, 60]
+      Position		      [410, 25, 440, 55]
       ZOrder		      16
       BlockMirror	      on
-      Gain		      "0.117"
+      Gain		      "0.247969"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      Reference
-      Name		      "Ground"
-      SID		      "6"
-      Ports		      [0, 0, 0, 0, 0, 1]
-      Position		      [319, 265, 341, 290]
-      ZOrder		      7
-      BlockRotation	      270
-      BlockMirror	      on
-      ShowName		      off
-      LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Elements/Ground"
-      SourceType	      "Ground"
-      LConnTagsString	      "a"
-    }
-    Block {
-      BlockType		      Reference
       Name		      "Ground1"
       SID		      "9"
       Ports		      [0, 0, 0, 0, 0, 1]
-      Position		      [659, 265, 681, 290]
+      Position		      [494, 240, 516, 265]
       ZOrder		      10
       BlockRotation	      270
       BlockMirror	      on
@@ -1019,7 +1010,7 @@ Model {
       Name		      "Ground2"
       SID		      "12"
       Ports		      [0, 0, 0, 0, 0, 1]
-      Position		      [154, 265, 176, 290]
+      Position		      [54, 240, 76, 265]
       ZOrder		      13
       BlockRotation	      270
       BlockMirror	      on
@@ -1031,44 +1022,26 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Ideal Switch"
-      SID		      "4"
-      Ports		      [1, 1, 0, 0, 0, 1, 1]
-      Position		      [220, 105, 275, 145]
-      ZOrder		      5
-      LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Power\nElectronics/Ideal Switch"
-      SourceType	      "Ideal Switch"
-      ContentPreviewEnabled   off
-      Ron		      "0.001"
-      Lon		      "0"
-      IC		      "0"
-      Rs		      "1e5"
-      Cs		      "inf"
-      Measurements	      on
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Motor Supply = 250 V"
-      SID		      "10"
-      Ports		      [0, 0, 0, 0, 0, 1, 1]
-      Position		      [155, 175, 175, 210]
-      ZOrder		      11
+      Name		      "Ground3"
+      SID		      "28"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [144, 240, 166, 265]
+      ZOrder		      26
       BlockRotation	      270
+      BlockMirror	      on
+      ShowName		      off
       LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Electrical\nSources/DC Voltage Source"
-      SourceType	      "DC Voltage Source"
-      ContentPreviewEnabled   off
-      Amplitude		      "250"
-      Measurements	      "None"
+      SourceBlock	      "powerlib/Elements/Ground"
+      SourceType	      "Ground"
+      LConnTagsString	      "a"
     }
     Block {
       BlockType		      Reference
-      Name		      "Rsh = 10 kohm"
-      SID		      "7"
+      Name		      "Rsh"
+      SID		      "26"
       Ports		      [0, 0, 0, 0, 0, 1, 1]
-      Position		      [316, 165, 344, 235]
-      ZOrder		      8
+      Position		      [141, 145, 169, 215]
+      ZOrder		      24
       BlockRotation	      270
       LibraryVersion	      "1.2362"
       SourceBlock	      "powerlib/Elements/Series RLC Branch"
@@ -1086,11 +1059,73 @@ Model {
       Measurements	      "None"
     }
     Block {
+      BlockType		      Reference
+      Name		      "Rst1"
+      SID		      "19"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [170, 116, 240, 144]
+      ZOrder		      20
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Elements/Series RLC Branch"
+      SourceType	      "Series RLC Branch"
+      LConnTagsString	      "__new0"
+      RConnTagsString	      "__new0"
+      BranchType	      "R"
+      Resistance	      "3.61975"
+      Inductance	      "1e-3"
+      SetiL0		      off
+      InitialCurrent	      "0"
+      Capacitance	      "1e-6"
+      Setx0		      off
+      InitialVoltage	      "0"
+      Measurements	      "None"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Rst2"
+      SID		      "8"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [270, 116, 340, 144]
+      ZOrder		      9
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Elements/Series RLC Branch"
+      SourceType	      "Series RLC Branch"
+      LConnTagsString	      "__new0"
+      RConnTagsString	      "__new0"
+      BranchType	      "R"
+      Resistance	      "3.61975"
+      Inductance	      "1e-3"
+      SetiL0		      off
+      InitialCurrent	      "0"
+      Capacitance	      "1e-6"
+      Setx0		      off
+      InitialVoltage	      "0"
+      Measurements	      "None"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "SW1"
+      SID		      "4"
+      Ports		      [1, 1, 0, 0, 0, 1, 1]
+      Position		      [85, 100, 140, 140]
+      ZOrder		      5
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Power\nElectronics/Ideal Switch"
+      SourceType	      "Ideal Switch"
+      ContentPreviewEnabled   off
+      Ron		      "0.001"
+      Lon		      "0"
+      IC		      "0"
+      Rs		      "1e5"
+      Cs		      "inf"
+      Measurements	      on
+    }
+    Block {
       BlockType		      Scope
       Name		      "Scope"
       SID		      "14"
       Ports		      [4]
-      Position		      [785, 50, 855, 155]
+      Position		      [605, 45, 675, 150]
       ZOrder		      15
       Floating		      off
       Location		      [1, 57, 1367, 695]
@@ -1118,61 +1153,71 @@ Model {
       YMax		      "5~5~5~5"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Stair\nGenerator"
-      SID		      "17"
-      Ports		      [0, 1]
-      Position		      [85, 96, 135, 134]
-      ZOrder		      18
-      LibraryVersion	      "1.40"
-      FontName		      "Arial"
-      SourceBlock	      "powerlib_meascontrol/Pulse & Signal\nGenerators/Stair\nGenerator"
-      SourceType	      "Stair Generator"
-      ContentPreviewEnabled   off
-      t			      "[0, 0.5]"
-      e			      "[0, 1]"
-      Ts		      "0"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Starting Resistance"
-      SID		      "8"
-      Ports		      [0, 0, 0, 0, 0, 1, 1]
-      Position		      [390, 121, 460, 149]
-      ZOrder		      9
-      LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Elements/Series RLC Branch"
-      SourceType	      "Series RLC Branch"
-      LConnTagsString	      "__new0"
-      RConnTagsString	      "__new0"
-      BranchType	      "R"
-      Resistance	      "5.476"
-      Inductance	      "1e-3"
-      SetiL0		      off
-      InitialCurrent	      "0"
-      Capacitance	      "1e-6"
-      Setx0		      off
-      InitialVoltage	      "0"
-      Measurements	      "None"
+      BlockType		      Step
+      Name		      "T1"
+      SID		      "27"
+      Position		      [20, 95, 50, 125]
+      ZOrder		      25
+      Time		      "0.5"
+      SampleTime	      "0"
     }
     Block {
       BlockType		      Step
-      Name		      "Step"
-      SID		      "16"
-      Position		      [315, 55, 345, 85]
-      ZOrder		      17
-      Time		      "2"
+      Name		      "T2"
+      SID		      "20"
+      Position		      [110, 5, 140, 35]
+      ZOrder		      21
+      Time		      "2.5"
       SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "T3"
+      SID		      "16"
+      Position		      [200, 5, 230, 35]
+      ZOrder		      17
+      Time		      "3.5"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "V"
+      SID		      "10"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [55, 160, 75, 195]
+      ZOrder		      11
+      BlockRotation	      270
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Electrical\nSources/DC Voltage Source"
+      SourceType	      "DC Voltage Source"
+      ContentPreviewEnabled   off
+      Amplitude		      "240"
+      Measurements	      "None"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Vf"
+      SID		      "11"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [410, 245, 445, 265]
+      ZOrder		      12
+      BlockMirror	      on
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Electrical\nSources/DC Voltage Source"
+      SourceType	      "DC Voltage Source"
+      ContentPreviewEnabled   off
+      Amplitude		      "240"
+      Measurements	      "None"
     }
     Block {
       BlockType		      Reference
       Name		      "powergui"
       SID		      "1"
       Ports		      []
-      Position		      [135, 320, 201, 359]
+      Position		      [610, 230, 676, 269]
       ZOrder		      2
       Priority		      "1"
-      LibraryVersion	      "*1.2362"
+      LibraryVersion	      "1.2362"
       UserDataPersistent      on
       UserData		      "DataTag0"
       SourceBlock	      "powerlib/powergui"
@@ -1225,119 +1270,92 @@ Model {
     Line {
       LineType		      "Connection"
       ZOrder		      2
-      SrcBlock		      "Breaker"
+      SrcBlock		      "B2"
       SrcPort		      RConn1
       Points		      [10, 0; 0, 55]
       Branch {
 	ConnectType		"DEST_DEST"
 	SrcBlock		"DC Machine"
 	SrcPort			LConn1
-	Points			[-35, 0]
+	Points			[-10, 0]
       }
       Branch {
 	ConnectType		"DEST_SRC"
-	DstBlock		"Starting Resistance"
+	DstBlock		"Rst2"
 	DstPort			RConn1
       }
     }
     Line {
       LineType		      "Connection"
-      ZOrder		      6
-      SrcBlock		      "Ideal Switch"
-      SrcPort		      RConn1
-      Points		      [40, 0]
-      Branch {
-	ConnectType		"DEST_DEST"
-	SrcBlock		"Rsh = 10 kohm"
-	SrcPort			RConn1
-	Points			[0, -15]
-      }
+      ZOrder		      9
+      SrcBlock		      "B2"
+      SrcPort		      LConn1
+      Points		      [-5, 0]
       Branch {
 	ConnectType		"DEST_SRC"
-	Points			[45, 0]
+	Points			[0, 45]
 	Branch {
 	  ConnectType		  "DEST_DEST"
-	  SrcBlock		  "Breaker"
-	  SrcPort		  LConn1
-	  Points		  [-5, 0; 0, 45]
+	  SrcBlock		  "Rst1"
+	  SrcPort		  RConn1
+	  Points		  [0, 0]
 	}
 	Branch {
 	  ConnectType		  "DEST_SRC"
-	  DstBlock		  "Starting Resistance"
+	  DstBlock		  "Rst2"
 	  DstPort		  LConn1
 	}
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"B1"
+	SrcPort			RConn1
+	Points			[10, 0; 0, 10]
       }
     }
     Line {
       LineType		      "Connection"
-      ZOrder		      11
-      SrcBlock		      "Rsh = 10 kohm"
+      ZOrder		      131
+      SrcBlock		      "Ground1"
       SrcPort		      LConn1
-      DstBlock		      "Ground"
-      DstPort		      LConn1
+      Points		      [0, -95]
+      DstBlock		      "DC Machine"
+      DstPort		      RConn1
     }
     Line {
       LineType		      "Connection"
-      ZOrder		      14
-      SrcBlock		      "DC Machine"
+      ZOrder		      123
+      SrcBlock		      "V"
       SrcPort		      RConn1
-      Points		      [35, 0]
-      DstBlock		      "Ground1"
+      Points		      [0, -15]
+      DstBlock		      "SW1"
       DstPort		      LConn1
     }
     Line {
       LineType		      "Connection"
-      ZOrder		      15
-      SrcBlock		      "Motor Supply = 250 V"
-      SrcPort		      RConn1
-      Points		      [0, -25]
-      DstBlock		      "Ideal Switch"
-      DstPort		      LConn1
-    }
-    Line {
-      LineType		      "Connection"
-      ZOrder		      16
-      SrcBlock		      "Motor Supply = 250 V"
+      ZOrder		      110
+      SrcBlock		      "V"
       SrcPort		      LConn1
       DstBlock		      "Ground2"
       DstPort		      LConn1
     }
     Line {
       LineType		      "Connection"
-      ZOrder		      17
+      ZOrder		      133
       SrcBlock		      "DC Machine"
       SrcPort		      LConn2
-      Points		      [0, 110]
-      DstBlock		      "Field Supply = 300 V"
+      Points		      [0, 95]
+      DstBlock		      "Vf"
       DstPort		      RConn1
     }
     Line {
       LineType		      "Connection"
-      ZOrder		      18
+      ZOrder		      132
       SrcBlock		      "DC Machine"
       SrcPort		      RConn2
-      Points		      [0, 110]
-      DstBlock		      "Field Supply = 300 V"
+      Points		      [-1, 0; 0, 95]
+      DstBlock		      "Vf"
       DstPort		      LConn1
-    }
-    Line {
-      Name		      "Speed"
-      ZOrder		      28
-      Labels		      [1, 1]
-      SrcBlock		      "Demux"
-      SrcPort		      1
-      Points		      [25, 0]
-      Branch {
-	ZOrder			35
-	Points			[0, -20]
-	DstBlock		"Gain"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			34
-	DstBlock		"Scope"
-	DstPort			1
-      }
     }
     Line {
       Name		      "Ia"
@@ -1367,7 +1385,7 @@ Model {
       DstPort		      4
     }
     Line {
-      ZOrder		      32
+      ZOrder		      108
       SrcBlock		      "DC Machine"
       SrcPort		      1
       DstBlock		      "Demux"
@@ -1377,23 +1395,83 @@ Model {
       ZOrder		      33
       SrcBlock		      "Gain"
       SrcPort		      1
-      Points		      [-50, 0; 0, 60]
+      Points		      [-40, 0]
       DstBlock		      "DC Machine"
       DstPort		      1
     }
     Line {
-      ZOrder		      36
-      SrcBlock		      "Step"
+      ZOrder		      88
+      SrcBlock		      "T1"
       SrcPort		      1
-      DstBlock		      "Breaker"
+      DstBlock		      "SW1"
       DstPort		      1
     }
     Line {
-      ZOrder		      37
-      SrcBlock		      "Stair\nGenerator"
+      LineType		      "Connection"
+      ZOrder		      46
+      SrcBlock		      "B1"
+      SrcPort		      LConn1
+      Points		      [-5, 0; 0, 45]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"SW1"
+	DstPort			RConn1
+      }
+      Branch {
+	ConnectType		"DEST_DEST"
+	SrcBlock		"Rsh"
+	SrcPort			RConn1
+	Points			[0, 0]
+      }
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"Rst1"
+	DstPort			LConn1
+      }
+    }
+    Line {
+      ZOrder		      66
+      SrcBlock		      "T2"
       SrcPort		      1
-      DstBlock		      "Ideal Switch"
+      Points		      [11, 0; 0, 45]
+      DstBlock		      "B1"
       DstPort		      1
+    }
+    Line {
+      ZOrder		      87
+      SrcBlock		      "T3"
+      SrcPort		      1
+      Points		      [20, 0; 0, 45]
+      DstBlock		      "B2"
+      DstPort		      1
+    }
+    Line {
+      Name		      "Speed"
+      ZOrder		      28
+      Labels		      [1, 1]
+      SrcBlock		      "Demux"
+      SrcPort		      1
+      Points		      [24, 0]
+      Branch {
+	ZOrder			107
+	Labels			[0, 0]
+	Points			[0, -20]
+	DstBlock		"Gain"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			106
+	DstBlock		"Scope"
+	DstPort			1
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      ZOrder		      113
+      SrcBlock		      "Rsh"
+      SrcPort		      LConn1
+      DstBlock		      "Ground3"
+      DstPort		      LConn1
     }
   }
 }
