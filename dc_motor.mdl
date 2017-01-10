@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.4"
+    ComputedModelVersion    "1.5"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,7 +31,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-1.0, 0.0, 1368.0, 697.0]
+      Location		      [1.0, 28.0, 1364.0, 667.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -55,9 +55,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1330.0, 528.0]
-	ZoomFactor		[1.0]
-	Offset			[-279.01478062101774, -77.750000000000227]
+	Extents			[1328.0, 527.0]
+	ZoomFactor		[1.25]
+	Offset			[-146.31478062101792, -46.650000000000176]
       }
     }
   }
@@ -70,9 +70,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "zpwl83"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jan 07 21:28:50 2017"
-  RTWModifiedTimeStamp	  405725249
-  ModelVersionFormat	  "1.%<AutoIncrement:4>"
+  LastModifiedDate	  "Tue Jan 10 16:49:10 2017"
+  RTWModifiedTimeStamp	  405967745
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -857,7 +857,7 @@ Model {
   }
   System {
     Name		    "dc_motor"
-    Location		    [-1, 0, 1367, 697]
+    Location		    [1, 28, 1365, 695]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -868,52 +868,10 @@ Model {
     PaperUnits		    "centimeters"
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
-    ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ShowPageBoundaries	    on
+    ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "28"
-    Block {
-      BlockType		      Reference
-      Name		      "B1"
-      SID		      "18"
-      Ports		      [1, 0, 0, 0, 0, 1, 1]
-      Position		      [175, 55, 230, 95]
-      ZOrder		      19
-      LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Elements/Breaker"
-      SourceType	      "Breaker"
-      ContentPreviewEnabled   off
-      InitialState	      "0"
-      SwitchingTimes	      "[1/60  5/60]"
-      External		      on
-      BreakerResistance	      "0.01"
-      SnubberResistance	      "1e6"
-      SnubberCapacitance      "inf"
-      Measurements	      "None"
-      MoreParameters	      on
-      NoBreakLoop	      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "B2"
-      SID		      "5"
-      Ports		      [1, 0, 0, 0, 0, 1, 1]
-      Position		      [275, 55, 330, 95]
-      ZOrder		      6
-      LibraryVersion	      "1.2362"
-      SourceBlock	      "powerlib/Elements/Breaker"
-      SourceType	      "Breaker"
-      ContentPreviewEnabled   off
-      InitialState	      "0"
-      SwitchingTimes	      "[1/60  5/60]"
-      External		      on
-      BreakerResistance	      "0.01"
-      SnubberResistance	      "1e6"
-      SnubberCapacitance      "inf"
-      Measurements	      "None"
-      MoreParameters	      on
-      NoBreakLoop	      off
-    }
     Block {
       BlockType		      Reference
       Name		      "DC Machine"
@@ -1121,6 +1079,48 @@ Model {
       Measurements	      on
     }
     Block {
+      BlockType		      Reference
+      Name		      "SW2"
+      SID		      "18"
+      Ports		      [1, 0, 0, 0, 0, 1, 1]
+      Position		      [175, 55, 230, 95]
+      ZOrder		      19
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Elements/Breaker"
+      SourceType	      "Breaker"
+      ContentPreviewEnabled   off
+      InitialState	      "0"
+      SwitchingTimes	      "[1/60  5/60]"
+      External		      on
+      BreakerResistance	      "0.01"
+      SnubberResistance	      "1e6"
+      SnubberCapacitance      "inf"
+      Measurements	      "None"
+      MoreParameters	      on
+      NoBreakLoop	      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "SW3"
+      SID		      "5"
+      Ports		      [1, 0, 0, 0, 0, 1, 1]
+      Position		      [275, 55, 330, 95]
+      ZOrder		      6
+      LibraryVersion	      "1.2362"
+      SourceBlock	      "powerlib/Elements/Breaker"
+      SourceType	      "Breaker"
+      ContentPreviewEnabled   off
+      InitialState	      "0"
+      SwitchingTimes	      "[1/60  5/60]"
+      External		      on
+      BreakerResistance	      "0.01"
+      SnubberResistance	      "1e6"
+      SnubberCapacitance      "inf"
+      Measurements	      "None"
+      MoreParameters	      on
+      NoBreakLoop	      off
+    }
+    Block {
       BlockType		      Scope
       Name		      "Scope"
       SID		      "14"
@@ -1270,7 +1270,7 @@ Model {
     Line {
       LineType		      "Connection"
       ZOrder		      2
-      SrcBlock		      "B2"
+      SrcBlock		      "SW3"
       SrcPort		      RConn1
       Points		      [10, 0; 0, 55]
       Branch {
@@ -1288,7 +1288,7 @@ Model {
     Line {
       LineType		      "Connection"
       ZOrder		      9
-      SrcBlock		      "B2"
+      SrcBlock		      "SW3"
       SrcPort		      LConn1
       Points		      [-5, 0]
       Branch {
@@ -1308,7 +1308,7 @@ Model {
       }
       Branch {
 	ConnectType		"DEST_DEST"
-	SrcBlock		"B1"
+	SrcBlock		"SW2"
 	SrcPort			RConn1
 	Points			[10, 0; 0, 10]
       }
@@ -1409,7 +1409,7 @@ Model {
     Line {
       LineType		      "Connection"
       ZOrder		      46
-      SrcBlock		      "B1"
+      SrcBlock		      "SW2"
       SrcPort		      LConn1
       Points		      [-5, 0; 0, 45]
       Branch {
@@ -1434,7 +1434,7 @@ Model {
       SrcBlock		      "T2"
       SrcPort		      1
       Points		      [11, 0; 0, 45]
-      DstBlock		      "B1"
+      DstBlock		      "SW2"
       DstPort		      1
     }
     Line {
@@ -1442,7 +1442,7 @@ Model {
       SrcBlock		      "T3"
       SrcPort		      1
       Points		      [20, 0; 0, 45]
-      DstBlock		      "B2"
+      DstBlock		      "SW3"
       DstPort		      1
     }
     Line {
