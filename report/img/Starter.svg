@@ -90,7 +90,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="430.72342"
+     inkscape:cx="279.20054"
      inkscape:cy="337.11505"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -108,7 +108,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -139,25 +139,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="176.85002"
-       y="576.33221"
+       x="182.85002"
+       y="582.33221"
        id="text16126"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan16128"
-         x="176.85002"
-         y="576.33221">SW1</tspan></text>
+         x="182.85002"
+         y="582.33221">\SW{1}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="714.2934"
-       y="576.33221"
+       x="720.2934"
+       y="582.33221"
        id="text16126-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan16128-0"
-         x="714.2934"
-         y="576.33221">SW3</tspan></text>
+         x="720.2934"
+         y="582.33221">\SW{3}</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 549.87445,596.06158 -121.69336,49.48438 -72.35743,0 0,130.78516 268.35743,0 0,-130.78516 -74.30664,0"
@@ -167,14 +167,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="445.30118"
-       y="576.33221"
+       x="451.30118"
+       y="582.33221"
        id="text16126-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan16128-6"
-         x="445.30118"
-         y="576.33221">SW2</tspan></text>
+         x="451.30118"
+         y="582.33221">\SW{2}</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

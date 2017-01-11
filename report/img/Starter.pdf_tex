@@ -48,12 +48,12 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.27761826)%
+  \begin{picture}(1,0.27126091)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Starter.pdf}}%
-    \put(0.10187003,0.25731749){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{SW1}}}%
-    \put(0.71439015,0.25731749){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{SW3}}}%
+    \put(0.10870818,0.25047933){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\SW{1}}}}%
+    \put(0.72122831,0.25047933){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\SW{3}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Starter.pdf}}%
-    \put(0.40782177,0.25731749){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{SW2}}}%
+    \put(0.41465992,0.25047933){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\SW{2}}}}%
     \put(0.39951225,0.087369){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{st}/2$}}}%
     \put(0.70649689,0.087369){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{st}/2$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Starter.pdf}}%
