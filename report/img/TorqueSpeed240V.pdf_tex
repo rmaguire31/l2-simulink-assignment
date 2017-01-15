@@ -1,0 +1,80 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'TorqueSpeed240V.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{708.12027436bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.47767445)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{TorqueSpeed240V.pdf}}%
+    \put(0.09286714,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.20274712,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize20}}}%
+    \put(0.31692408,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize40}}}%
+    \put(0.43110104,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize60}}}%
+    \put(0.54527811,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize80}}}%
+    \put(0.65515808,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize100}}}%
+    \put(0.76933504,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize120}}}%
+    \put(0.883512,0.03541868){\makebox(0,0)[lb]{\smash{\footnotesize140}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{TorqueSpeed240V.pdf}}%
+    \put(0.07585829,0.05104687){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.06726432,0.09686451){\makebox(0,0)[lb]{\smash{\footnotesize10}}}%
+    \put(0.06726432,0.14268227){\makebox(0,0)[lb]{\smash{\footnotesize20}}}%
+    \put(0.06726432,0.18850002){\makebox(0,0)[lb]{\smash{\footnotesize30}}}%
+    \put(0.06726432,0.23431766){\makebox(0,0)[lb]{\smash{\footnotesize40}}}%
+    \put(0.06726432,0.28013541){\makebox(0,0)[lb]{\smash{\footnotesize50}}}%
+    \put(0.06726432,0.32595305){\makebox(0,0)[lb]{\smash{\footnotesize60}}}%
+    \put(0.06726432,0.37177081){\makebox(0,0)[lb]{\smash{\footnotesize70}}}%
+    \put(0.06726432,0.41758845){\makebox(0,0)[lb]{\smash{\footnotesize80}}}%
+    \put(0.06726432,0.4634062){\makebox(0,0)[lb]{\smash{\footnotesize90}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{TorqueSpeed240V.pdf}}%
+    \put(0.18309618,0.43530211){\makebox(0,0)[lb]{\smash{$T_L$~/~\Nm}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{TorqueSpeed240V.pdf}}%
+    \put(0.18309618,0.39142377){\makebox(0,0)[lb]{\smash{$T_e$~/~\Nm}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{TorqueSpeed240V.pdf}}%
+    \put(0.4413686,0.0040298){\makebox(0,0)[lb]{\smash{$\omega$~/~\rps}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{TorqueSpeed240V.pdf}}%
+  \end{picture}%
+\endgroup%

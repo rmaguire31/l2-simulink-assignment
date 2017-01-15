@@ -1,0 +1,108 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Time240V.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{707.36846503bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.51666657)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Time240V.pdf}}%
+    \put(0.07325403,0.38360541){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.06420641,0.42318875){\makebox(0,0)[lb]{\smash{\footnotesize50}}}%
+    \put(0.05515879,0.46277208){\makebox(0,0)[lb]{\smash{\footnotesize100}}}%
+    \put(0.05515879,0.5023554){\makebox(0,0)[lb]{\smash{\footnotesize150}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Time240V.pdf}}%
+    \put(0.09285717,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.16591669,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize0.5}}}%
+    \put(0.25254763,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize1}}}%
+    \put(0.32560715,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize1.5}}}%
+    \put(0.4122381,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize2}}}%
+    \put(0.48529762,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize2.5}}}%
+    \put(0.57192857,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize3}}}%
+    \put(0.64498809,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize3.5}}}%
+    \put(0.73161903,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize4}}}%
+    \put(0.80467855,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize4.5}}}%
+    \put(0.8913095,0.36960767){\makebox(0,0)[lb]{\smash{\footnotesize5}}}%
+    \put(0.12085376,0.47759153){\makebox(0,0)[lb]{\smash{$\omega$~/~\rps}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Time240V.pdf}}%
+    \put(0.07325403,0.21847778){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.06420641,0.25768417){\makebox(0,0)[lb]{\smash{\footnotesize20}}}%
+    \put(0.06420641,0.29689044){\makebox(0,0)[lb]{\smash{\footnotesize40}}}%
+    \put(0.06420641,0.33609682){\makebox(0,0)[lb]{\smash{\footnotesize60}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Time240V.pdf}}%
+    \put(0.09285717,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.16591669,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize0.5}}}%
+    \put(0.25254763,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize1}}}%
+    \put(0.32560715,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize1.5}}}%
+    \put(0.4122381,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize2}}}%
+    \put(0.48529762,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize2.5}}}%
+    \put(0.57192857,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize3}}}%
+    \put(0.64498809,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize3.5}}}%
+    \put(0.73161903,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize4}}}%
+    \put(0.80467855,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize4.5}}}%
+    \put(0.8913095,0.20448434){\makebox(0,0)[lb]{\smash{\footnotesize5}}}%
+    \put(0.12085376,0.31133295){\makebox(0,0)[lb]{\smash{$I_a$~/~\A}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Time240V.pdf}}%
+    \put(0.07325403,0.05336304){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.06420641,0.11273804){\makebox(0,0)[lb]{\smash{\footnotesize50}}}%
+    \put(0.05515879,0.17211303){\makebox(0,0)[lb]{\smash{\footnotesize100}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Time240V.pdf}}%
+    \put(0.09285717,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.16591669,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize0.5}}}%
+    \put(0.25254763,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize1}}}%
+    \put(0.32560715,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize1.5}}}%
+    \put(0.4122381,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize2}}}%
+    \put(0.48529762,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize2.5}}}%
+    \put(0.57192857,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize3}}}%
+    \put(0.64498809,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize3.5}}}%
+    \put(0.73161903,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize4}}}%
+    \put(0.80467855,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize4.5}}}%
+    \put(0.8913095,0.0393653){\makebox(0,0)[lb]{\smash{\footnotesize5}}}%
+    \put(0.12085376,0.14734916){\makebox(0,0)[lb]{\smash{$T_e$~/~\Nm}}}%
+    \put(0.47344829,0.0076578){\color[rgb]{0.14901961,0.14901961,0.14901961}\makebox(0,0)[lb]{\smash{$t$~/~\s}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Time240V.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,77 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'TorqueSpeed157V.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{707.36846503bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.47818213)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{TorqueSpeed157V.pdf}}%
+    \put(0.18329078,0.43576476){\makebox(0,0)[lb]{\smash{$T_L$~/~\Nm}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{TorqueSpeed157V.pdf}}%
+    \put(0.18329078,0.39183978){\makebox(0,0)[lb]{\smash{$T_e$~/~\Nm}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{TorqueSpeed157V.pdf}}%
+    \put(0.4418377,0.00403409){\makebox(0,0)[lb]{\smash{$\omega$~/~\rps}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{TorqueSpeed157V.pdf}}%
+    \put(0.09296584,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.17756873,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize10}}}%
+    \put(0.26647335,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize20}}}%
+    \put(0.35537807,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize30}}}%
+    \put(0.4442828,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize40}}}%
+    \put(0.53318742,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize50}}}%
+    \put(0.62209215,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize60}}}%
+    \put(0.71099687,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize70}}}%
+    \put(0.79990149,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize80}}}%
+    \put(0.88880622,0.03545633){\makebox(0,0)[lb]{\smash{\footnotesize90}}}%
+    \put(0.07638343,0.05110113){\makebox(0,0)[lb]{\smash{\footnotesize0}}}%
+    \put(0.06733581,0.11990069){\makebox(0,0)[lb]{\smash{\footnotesize10}}}%
+    \put(0.06733581,0.18870037){\makebox(0,0)[lb]{\smash{\footnotesize20}}}%
+    \put(0.06733581,0.25749993){\makebox(0,0)[lb]{\smash{\footnotesize30}}}%
+    \put(0.06733581,0.32629949){\makebox(0,0)[lb]{\smash{\footnotesize40}}}%
+    \put(0.06733581,0.39509916){\makebox(0,0)[lb]{\smash{\footnotesize50}}}%
+    \put(0.06733581,0.46389873){\makebox(0,0)[lb]{\smash{\footnotesize60}}}%
+  \end{picture}%
+\endgroup%
