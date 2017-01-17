@@ -1,15 +1,16 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,11pt,twocolumn]{article}
 \usepackage[latin1]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{cuted}
 
 \usepackage{titling}
 \usepackage{nomencl}
 \usepackage{siunitx}
-\usepackage[style=ieee,backend=bibtex,defernumbers=true]{biblatex}
-\usepackage{endnotes}
+\usepackage[style=ieee,backend=bibtex]{biblatex}
+\usepackage[font={small}]{caption}
 
 \usepackage{graphicx}
 \usepackage{color}
@@ -17,11 +18,12 @@
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{fancyhdr}
+\usepackage{float}
 
 \usepackage{varioref}
 \usepackage{textcomp}
 \usepackage{xspace}
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=nonfrench,factor=1100,stretch=10,shrink=10]{microtype}
 % activate={true,nocompatibility} - activate protrusion and expansion
 % final - enable microtype; use "draft" to disable
 % tracking=true, kerning=true, spacing=true - activate these techniques
@@ -44,11 +46,13 @@
 \newcommand{\rps}{\si{\radian\per\second}\xspace}
 \newcommand{\Vspr}{\si{\volt\second\per\radian}\xspace}
 \newcommand{\NmpA}{\si{\newton\metre\per\ampere}\xspace}
-\newcommand{\Nmspr}{\si{\newton\metre\radian\per\second}\xspace}
+\newcommand{\kgmm}{\si{\kilogram\square\metre}\xspace}
+\newcommand{\Nmspr}{\si{\newton\metre\second\per\radian}\xspace}
 \newcommand{\RPM}{\text{RPM}\xspace}
 
-\newcommand{\DC}{\textsc{dc}\xspace}
-\newcommand{\EMF}{\textsc{emf}\xspace}
+\newcommand{\AC}{a.c.\xspace}
+\newcommand{\DC}{d.c.\xspace}
+\newcommand{\EMF}{e.m.f.\xspace}
 \newcommand{\TRBDFII}{\textsc{tr-bdf\footnotesize2}\xspace}
 \newcommand{\odetwothreebt}{ode\oldstylenums{23}bt\xspace}
 \newcommand{\SW}[1]{\textsc{sw\footnotesize#1}\xspace}
@@ -72,13 +76,11 @@
     \hspace*{\fill}
     \makebox[9em][l]{\ifthenelse{\equal{#1}{}}{#2}{#2~\textbf{or}~#1}}
 }
+\renewcommand{\nomitemsep}{0.74\parsep}
 \makenomenclature
 
 % Setup bibiliography.
-\DeclareBibliographyCategory{cited}
-\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
 \addbibresource{bibliography}
-\nocite{*}
 
 % Header and footer.
 \pagestyle{fancy}
@@ -105,58 +107,75 @@
 \end{titlepage}
 
 % Contents page.
+\onecolumn
 \pagenumbering{roman}
-    
-\tableofcontents
-    
+
 % Acronyms
-\nomenclature[A0]{\DC}{Direct current}
-\nomenclature[A1]{\EMF}{Electromotive force}
-\nomenclature[A2]{\textsc{rpm}}{Revolutions per minute}
-\nomenclature[A3]{\SW}{Switch}
+\nomenclature[A0]{\AC}{Alternating current}
+\nomenclature[A1]{\DC}{Direct current}
+\nomenclature[A2]{\EMF}{Electromotive force}
+\nomenclature[A3]{r.p.m.}{Revolutions per minute}
 
 % Variables
 \nomenclature[B00]{$B$}{Load torque constant \nomindex{\Nmspr}}
 \nomenclature[B01]{$E$}{Motor back \EMF \nomindex{\V}}
 \nomenclature[B02]{$I$}{Current \nomindex{\A}}
-\nomenclature[B03]{$K$}{Motor \EMF constant \nomindex[\Vspr]{\NmpA}}
-\nomenclature[B04]{$L$}{Inductance \nomindex{\H}}
-\nomenclature[B05]{$N$}{Motor speed \nomindex{\RPM}}
-\nomenclature[B07]{$P$}{Power \nomindex{\W}}
-\nomenclature[B07]{$R$}{Resistance \nomindex{\Ohm}}
-\nomenclature[B08]{$T$}{Torque \nomindex{\Nm}}
-\nomenclature[B09]{$V$}{Supply voltage \nomindex{\V}}
-\nomenclature[B10]{$t$}{Time \nomindex{\s}}
-\nomenclature[B11]{$\omega$}{Motor speed \nomindex{\rps}}
+\nomenclature[B03]{$J$}{Moment of inertia \nomindex{\kgmm}}
+\nomenclature[B04]{$K$}{Motor \EMF constant \nomindex[\Vspr]{\NmpA}}
+\nomenclature[B05]{$L$}{Inductance \nomindex{\H}}
+\nomenclature[B06]{$N$}{Motor rotational speed \nomindex{\RPM}}
+\nomenclature[B08]{$R$}{Resistance \nomindex{\Ohm}}
+\nomenclature[B09]{$T$}{Torque \nomindex{\Nm}}
+\nomenclature[B10]{$V$}{Supply voltage \nomindex{\V}}
+\nomenclature[B11]{$t$}{Time \nomindex{\s}}
+\nomenclature[B12]{$\omega$}{Motor rotational speed \nomindex{\rps}}
+\nomenclature[BB]{}{\vspace{-1em}\nomindex{}}
 
+\tableofcontents
 \printnomenclature
 
 % Main matter.
-\clearpage
+\twocolumn[
+\begin{@twocolumnfalse}
+    \begin{abstract}
+        In this report, it is described how the MathWorks\Textregistered 
+        Simulink\Textregistered and SimScape\Texttrademark graphical packages 
+        were used to model the way electrical and mechanical properties of a 
+        separately excited \DC motor changed with respect to time. Using 
+        results from the simulation and the torque error term, it was shown the 
+        motor was capable of outputting enough torque to match the load at a 
+        range of different speeds.
+    \end{abstract}
+\end{@twocolumnfalse}
+\vspace{\parsep}
+]
 \pagenumbering{arabic}
-
-\begin{abstract}
-    In this report, it is described how the MathWorks\Textregistered 
-    Simulink\Textregistered and SimScape\Texttrademark graphical packages were 
-    used to model the way electrical and mechanical properties of a separately 
-    excited \DC motor changed in time. \textcolor{red}{TODO: COMPLETE ME}
-    
-\end{abstract}
 
 \section{Introduction}
 
-\textcolor{red}{TODO}
+Direct current motors are used in a variety of applications from power tools to 
+electric vehicles. Unlike alternating current motors, a \DC motor can be 
+battery powered so are typically found in portable applications. However, 
+precise torque and speed control is the primary benefit of \DC motors over 
+their \AC counterparts. Motors driven by an alternating supply typically 
+operate at a fixed frequency and speed, requiring \AC/\AC convertors to change 
+the supply frequency \cite[p. 787]{hughes2010hughes}.
 
-\section{Background}
+As detailed in the remainder of the report, the speed of \DC motors can be 
+varied by changing the magnitude of the \DC supply voltage, provided the motor 
+can meet the loading requirements.
 
-The most general form of \DC motor is a separately excited \DC motor, where the 
-motor consists of two distinct parts---the stator field and armature---which 
-each have their own independent \DC voltage source. Under constant field 
-operation, the magnetic field produced by current flowing through the field 
-windings is unchanging. As current flows through windings in the armature, an 
-electric field is produced which interacts with the static magnetic field. This 
-interaction exerts an electromagnetic torque $T_e$ on the armature, 
-proportional to the armature current $I_a$.
+\section{Background} \label{sec:Background}
+
+According to Hughes in \cite[p.~870]{hughes2010hughes}, the most general form 
+of \DC motor is a separately excited \DC motor, where the motor consists of two 
+distinct parts---the stator field and armature---which each have their own 
+independent \DC voltage source. Under constant field operation, the magnetic 
+field produced by current flowing through the field windings is unchanging. As 
+current flows through windings in the armature, an electric field is produced 
+which interacts with the static magnetic field. This interaction exerts an 
+electromagnetic torque $T_e$ on the armature, shown to be proportional to the 
+armature current $I_a$ as follows \cite[p.~873]{hughes2010hughes}:
 
 \begin{equation}  \label{eq:T}
     T_e = K I_a ~\Leftrightarrow~ I_a = \frac{T_e}{K} \\
@@ -164,27 +183,28 @@ proportional to the armature current $I_a$.
 
 The constant that relates electromagnetic torque is composed of the field 
 current $I_f$ and the coupling inductance between the field and stator windings 
-$L_{af}$ as follows:
-
+$L_{af}$ is known as the motor \EMF constant. According to 
+\cite{brigham2016coursework}, it is defined by the following:
 \begin{equation} \label{eq:K}
     K = L_{af} I_f \\
 \end{equation}
 
 Figure~\vref{fig:Circuit} contains the circuit diagram of a separately excited 
-\DC motor subjected to a load torque $T_L$. When there is a net torque on the 
-armature the motor accelerates to some non-zero rotational speed. Consequently, 
-the armature current moves relative to the stator field, so a back \EMF is 
-induced across the armature windings such that it opposes its supply voltage in 
-accordance with Faraday and Lenz's laws. The same motor constant from 
-Equation~\ref{eq:K} relates the back \EMF $E$ to the rotational speed $\omega$.
-
+\DC motor subjected to a load torque $T_L$---based on the diagram given in 
+\cite{kazemtabrizi2015dc}. When there is a net torque on the armature the motor 
+accelerates to some non-zero rotational speed. Consequently, the armature 
+current moves relative to the stator field, so a back \EMF is induced across 
+the armature windings such that it opposes its supply voltage in accordance 
+with Faraday and Lenz's laws. Hughes shows the same motor constant from 
+Equation~\ref{eq:K} relates the back \EMF $E$ to the rotational speed $\omega$ 
+\cite[p.~873]{hughes2010hughes}.
 \begin{equation}  \label{eq:omega}
     E = K \omega ~\Leftrightarrow~ \omega = \frac{E}{K} \\
 \end{equation}
 
 \begin{figure}[h]
     \centering
-    \def\svgwidth{0.6\textwidth}
+    \def\svgwidth{0.48\textwidth}
     \input{img/Circuit.pdf_tex}
     \caption{Circuit diagram of a seperately excited \DC motor.}
     \label{fig:Circuit}
@@ -200,7 +220,6 @@ large value to limit the current in the armature.
 Applying Kirchoff's voltage law to the left hand side of 
 Figure~\ref{fig:Circuit}, an equation linking all the electrical properties of 
 the armature is found:
-
 \begin{equation}  \label{eq:ERst}
     E = V - I_a(R_a + R_{st}) \\
 \end{equation}
@@ -208,8 +227,8 @@ the armature is found:
 However, under normal operation after the motor has started, the resistance 
 $R_{st}$ is taken out of the armature to achieve a greater electromagnetic 
 torque. The following equation describes how the electrical properties of the 
-armature are related under normal operation:
-
+armature are related under normal operation and is the equation given by Hughes 
+\cite[p.~871]{hughes2010hughes}:
 \begin{equation}  \label{eq:E}
     R_{st} = 0~\Ohm ~\Rightarrow~ E = V - I_a R_a \\
 \end{equation}
@@ -217,45 +236,44 @@ armature are related under normal operation:
 \section{Methods}
 
 The Simulink package and SimScape library produced by MathWorks were used to 
-model the behaviour of a \DC motor system with a two step motor starter, using 
-an implementation of \TRBDFII developed in \cite{bank1985transient}. The 
-process of implementing this method was described in \cite{hosea1996analysis}. 
-In Simulink, \TRBDFII is used in the \odetwothreebt solving method. The block 
-diagram of the model the solver was used on is documented in 
+model the behaviour of a \DC motor system with a two step motor starter---using 
+an implementation of \TRBDFII developed in \cite{bank1985transient, 
+hosea1996analysis}. In Simulink, \TRBDFII is used in the \odetwothreebt solving 
+method. The block diagram of the model the solver was used on is documented in 
 Figure~\vref{fig:Model}. 
-
-\begin{figure*}[b]
+\begin{figure*}[t]
     \centering
     \includegraphics[width=\textwidth]{Model}
     \caption{Block diagram of the Simulink model.}
     \label{fig:Model}
 \end{figure*}
 
-The \DC machine was configured with the resistance and inductance of the 
-armature and field windings given in Table~\vref{table:Parameters}. The 
-electrical inputs for these windings were implemented using external \DC 
-voltage 
-sources; these were also given in Table~\ref{table:Parameters}. For monitoring 
-purposes, the outputs of the motor were armature current, field current,
-electromagnetic torque and rotational speed.
-
-\begin{table*}[t]
+The \DC machine was configured with the moment of inertia, resistance and 
+inductance of the armature and field windings given in 
+Table~\vref{table:Parameters}. The electrical inputs for these windings were 
+implemented using external \DC voltage sources; these were also given in 
+Table~\ref{table:Parameters}. For monitoring purposes, the output signals of 
+the motor were armature current, field current, electromagnetic torque and 
+rotational speed.
+\begin{table}[h]
     \centering
+    \small
     \begin{threeparttable}
-        \caption{Defining parameters of \DC motor system.}
+        \caption{Defining parameters of \DC motor system.\vspace{-1em}}
         \label{table:Parameters}
-        \begin{tabular}{llrl}
+        \begin{tabular}{@{}llrl@{}}
             \toprule
             \multicolumn{4}{l}{\textbf{Armature Components}} \\
             \hspace{1em}$V$   & Supply voltage      & 240 & \V \\
             \hspace{1em}$R_a$ & Armature resistance & 1.6 & \Ohm \\
             \hspace{1em}$L_a$ & Armature inductance &  12 & \mH \\
+            \hspace{1em}$J$   & Moment of inertia   & 0.5 & \kgmm \\
             \midrule
             \multicolumn{4}{l}{\textbf{Field Components}} \\
-            \hspace{1em}$V_f$    & Field voltage     &  240 & \V \\
-            \hspace{1em}$R_a$    & Field resistance  &  240 & \Ohm \\
-            \hspace{1em}$L_a$    & Field inductance  &  120 & \H \\
-            \hspace{1em}$L_{af}$ & Mutual inductance & 1.65 & \H \\
+            \hspace{1em}$V_f$    & Field voltage       &  240 & \V \\
+            \hspace{1em}$R_a$    & Field resistance    &  240 & \Ohm \\
+            \hspace{1em}$L_a$    & Field inductance    &  120 & \H \\
+            \hspace{1em}$L_{af}$ & Coupling inductance & 1.65 & \H \\
             \midrule
             \multicolumn{4}{l}{\textbf{Load Characteristics}} \\
             \hspace{1em}$T_{e0}$   & Initial torque         & 45       & \Nm \\
@@ -268,14 +286,50 @@ electromagnetic torque and rotational speed.
             \item[*]See Equation~\vref{eq:B}.
         \end{tablenotes}
     \end{threeparttable}
-\end{table*}
+\end{table}
+
+The \DC machine was also configured with a starting field current as this would 
+be constant throughout the simulation. Applying Ohm's law to the right hand 
+side of Figure~\ref{fig:Circuit}, the stable field current was found:
+\begin{align*}
+    I_f &= \frac{V_f}{R_f} \\
+    I_f &= \frac{240~\V}{240~\Ohm} \\
+    I_f &= 1~\A
+\end{align*}
+
+A constant useful for calculating additional model parameters was the motor 
+\EMF constant; it's value was found by substituting the coupling inductance 
+from Table~\ref{table:Parameters} and the constant field current into 
+Equation~\ref{eq:K}. The calculation yielded the following result:
+\begin{align*}
+    K &= L_{af} I_f \\
+    K &= (1.65~\H) (1~\A) \\
+    K &= 1.65~\Vspr
+\end{align*}
+
+For example, from the motor \EMF constant, the theoretical armature current at 
+nominal speed could be calculated. The nominal speed was given in 
+\cite{brigham2016coursework} as 1220~\RPM; this had to be converted into \rps:
+\begin{equation*}
+    N = 1220~\RPM~\Leftrightarrow~\omega = 122\pi/3~\rps
+\end{equation*}
+
+Equation~\ref{eq:omega} was substituted into Equation~\ref{eq:E} then 
+rearranged to make $I_a$ the subject. Plugging in values from 
+Table~\ref{table:Parameters} and the nominal speed calculated above, the 
+following armature current was calculated:
+\begin{align*}
+    K \omega &= V - I_a R_a \\
+    \Leftrightarrow~ I_a &= \frac{V - K \omega}{R_a} \\
+    I_a =& \frac{240~\V - (1.65~\Vspr)(122\pi/3~\rps)}{1.5~\Ohm} \\
+    I_a =& 19.466~\A
+\end{align*}
 
 \subsection{Electric Hoist Load}
 
 The motor in the simulation was loaded with an electric hoist--type load. The 
 rotational speed $\omega$ was used to described the load torque $T_L$ 
 using the following relationship:
-
 \begin{equation} \label{eq:B}
     T_L = B\omega \\
 \end{equation}
@@ -285,7 +339,7 @@ torque load input via a constant gain block, configured with multiplicative
 gain $B$ given in Table~\ref{table:Parameters}. This can be seen in the top 
 right of Figure~\ref{fig:Model}.
 
-\subsection{Motor Starter}
+\subsection{Motor Starter} \label{sec:MotorStarter}
 
 The motor starter in this model---represented as a variable resistor in 
 Figure~\ref{fig:Circuit}---was modelled using three switches in series with the 
@@ -294,10 +348,9 @@ all current flowed through the resistor when the switch was open: when the
 switch was closed the current experienced no resistance. 
 Figure~\vref{fig:Starter} shows the circuit diagram of the network implemented, 
 at the start of the simulation.
-
 \begin{figure}[h]
     \centering
-    \def\svgwidth{0.6\textwidth}
+    \def\svgwidth{0.48\textwidth}
     \input{img/Starter.pdf_tex}
     \caption{Circuit diagram of the motor starter used in the model.}
     \label{fig:Starter}
@@ -310,85 +363,65 @@ The 0.5~\s delay before powering the armature winding gave the field current
 and armature mechanics sufficient to stabilise, whilst the other two switches 
 removed the starting resistance in two steps.
 
-However, because the 120~\H inductance of the field winding was too large for 
-the field current to reach a stable value in 0.5~\s, the \DC machine was 
-configured with a stable initial field current. Applying Ohm's law to the right 
-hand side of Figure~\ref{fig:Circuit}, the following field current was found:
-
-\begin{align*}
-    I_f &= \frac{V_f}{R_f} \\
-    I_f &= \frac{240~\V}{240~\Ohm} \\
-    I_f &= 1~\A \\
-\end{align*}
-
 The starting resistance limited the current flowing through the armature 
 winding---to prevent damage---but the current had to be sufficiently large to 
 generate the initial 45~\Nm of electromagnetic torque prescribed in 
-Table~\ref{table:Parameters}. Before this resistance could be calculated, the 
-motor \EMF constant had to be determined. Substituting the mutual inductance 
-from Table~\ref{table:Parameters} and the constant field current into 
-Equation~\ref{eq:K} yielded the following result:
+Table~\ref{table:Parameters}.
 
-\begin{align*}
-    K &= L_{af} I_f \\
-    K &= (1.65~\H) (1~\A) \\
-    K &= 1.65~\Vspr \\
-\end{align*}
-
-The maximum allowable resistance was calculated by substituting 
-Equations~\ref{eq:K} and \ref{eq:omega} into Equation~\ref{eq:ERst} and 
-rearranging for $R_{st}$. The initial speed of the armature was assumed to be 
-1~\rps. The result after substituting the necessary values was as follows:
-
+The maximum allowable starting resistance $R_{st\,max}$ was calculated by 
+substituting Equations~\ref{eq:K} and \ref{eq:omega} into 
+Equation~\ref{eq:ERst} and rearranging for $R_{st}$. The initial speed of the 
+armature was assumed to be 1~\rps. The result after substituting the necessary 
+values was as follows:
 \begin{align*}
     K \omega &= V - \frac{T_e}{K}(R_a + R_{st}) \\
     \Leftrightarrow~ R_{st} &= \frac{V - K\omega}{T_e/K} - R_a \\
-    R_{st} &= \frac{240~\V - (1.65~\Vspr)(1~\rps)}{(45~\Nm)/(1.65~\NmpA)}
-        - 1.5~\Ohm \\
-    R_{st} &= 7.2395~\Ohm \\
+    R_{st\,max} &= \frac{240~\V - (1.65~\Vspr)(1~\rps)}{(45~\Nm)/(1.65~\NmpA)}\\
+        &\hspace{13em} - 1.5~\Ohm \\
+    R_{st\,max} &= 7.2395~\Ohm
 \end{align*}
+
+Each of the resistors marked Rst1 and Rst2 in the Figure~\vref{fig:Model} were 
+configured with half the maximum allowable starting resistance: 3.6197~\Ohm.
 
 \subsection{Variable Speed Operation}
 
 Once the simulation had been run in the state defined in 
 Table~\ref{table:Parameters} at a nominal speed of 1220~\RPM, the effect of 
 varying speed by reducing the supply voltage was tested. The target nominal 
-speed was 800~\RPM, which first had to be converted into \rps.
-
+speed was 800~\RPM, which first had to be converted into \rps:
 \begin{equation*}
     N = 800~\RPM~\Leftrightarrow~\omega = 80\pi/3~\rps
 \end{equation*}
 
 The load torque at this speed was found by substituting the speed in \rps into 
 Equation~\vref{eq:B} as follows:
-
 \begin{align*}
     T_L &= B\omega \\
     T_L &= (0.247969~\Nmspr)(80\pi/3~\rps) \\
-    T_L &= \textcolor{red}{TODO}~\Nm \\
+    T_L &= 20.774~\Nm
 \end{align*}
 
-From the load torque the armature could be calculated using 
-Equation~\ref{eq:T}, assuming the motor was able to output enough 
-electromagnetic torque to match the load torque without slipping---load torque 
-and electromagnetic torque were equivalent.
-
+From the load torque the armature current could be calculated using 
+Equation~\vref{eq:T}. Assuming the motor was able to output enough 
+electromagnetic torque to match the load torque without slipping, the current 
+found would be as follows:
 \begin{align*}
     I_a &= \frac{T_e}{K} \\
-    I_a &= \frac{\textcolor{red}{TODO}~\Nm}{1.65~\NmpA} \\
-    I_a &= 12.590~\A \\
+    I_a &= \frac{20.774~\Nm}{1.65~\NmpA} \\
+    I_a &= 12.590~\A
 \end{align*}
 
 Finally, the required supply voltage was found by substituting 
 Equation~\ref{eq:omega} into Equation~\ref{eq:E} and rearranging for $V$. The 
 $R_{st}$ term could be neglected, as at nominal speed the motor should have 
 already started and stabilised.
-
 \begin{align*}
     K \omega &= V - I_a R_a \\
-        \Leftrightarrow~V &= K \omega + I_a R_a \\
-    V &= (1.65~\Vspr)(80\pi/3~\rps) + (12.590~\A)(1.5~\Ohm) \\
-    V &= 157.12~\V \\
+    \Leftrightarrow~V &= K \omega + I_a R_a \\
+    V &= (1.65~\Vspr)(80\pi/3~\rps) \\
+        &\hspace{6em}+ (12.590~\A)(1.5~\Ohm) \\
+    V &= 157.12~\V
 \end{align*}
 
 The \DC voltage source for the armature winding was reconfigured with an 
@@ -396,51 +429,125 @@ amplitude of 157.12~\V and the simulation rerun.
 
 \section{Results and Discussion}
 
-\textcolor{red}{TODO}
+Figure~\vref{fig:Time240V} shows the evolution of the \DC machine parameters 
+during the 5~\s simulation, performed at the original supply voltage of 240~\V.
+Note the discontinuities at 0.5~\s, 2.5~\s and 3.5~\s; when \SW{1}, \SW{2} and
+\SW{3} were closed.
+\begin{figure*}[t]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{img/Time240V.pdf_tex}
+    \caption{Simulated motor properties against time with 240~\V supply.}
+    \label{fig:Time240V}
+\end{figure*}
 
-\begin{equation*}
-    N = 1220~\RPM~\Leftrightarrow~\omega = 122\pi/3~\rps
-\end{equation*}
+Those sudden increases in electromagnetic torque output can be attributed to 
+the increases in armature current. Indeed, Equation~\ref{eq:T} showed 
+electromagnetic torque is directly proportional to the armature current.
 
+As discussed in Section~\ref{sec:MotorStarter}, when each of \SW{2} and \SW{3} 
+were closed, the switch established a branch parallel with the resistor. The 
+resistance of such a network is zero. Thus at 2.5~\s and 3.5~\s the starting 
+resistance $R_{st}$ decreased. Rearranging Equation~\ref{eq:ERst} for $I_a$, it 
+is clear the decrease in starting resistance was responsible for the sudden 
+increase in armature current:
+\begin{equation} \label{eq:Ia}
+    I_a = \frac{V - E}{R_a + R_{st}}
+\end{equation}
+
+Equation~\ref{eq:Ia} also explains why the torque decayed soon after 
+decreasing. The armature had a rotational inertia of 0.5~\kgmm, so the armature 
+speed lagged the net torque; this was evidenced in 
+Figure~\ref{fig:Time240V}---the rotational speed did not instantly change in 
+reaction to the increase in electromagnetic torque. However, as the armature 
+slowly accelerated, the back \EMF increased according to 
+Equation~\ref{eq:omega}. The increasing back \EMF reduced the current flowing 
+through the armature and thus the torque decayed.
+
+As the armature speed increased, electromagnetic torque decreased, but the load 
+torque increased linearly---see Equation~\ref{eq:B}. The net torque $T_e - T_L$ 
+driving the acceleration of the armature became smaller as the armature reached 
+higher speeds. In Figure~\ref{fig:Time240V} this is apparent as the rate of 
+change of armature speed gets smaller with respect to time. Ideally, the net 
+torque would be zero at the nominal speed $1220~\RPM = 122\pi/3~\rps = 
+127.76~\rps$. Figure~\ref{fig:Time240V} suggests that by 5~\s, the motor had 
+reached nominal speed.
+
+Figure~\vref{fig:TorqueSpeed240V} is the torque--speed plot for the simulation. 
+Inspection of the load and electromagnetic torque traces suggest the torques 
+converged at the nominal speed of 127.76~\rps---the operating point where there 
+was no net torque. The motor error term $\Delta T$ can be used to quantify the 
+capability of the motor matching the full load torque at nominal speed. The 
+error term is given by the following equation:
+\begin{figure*}[t]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{img/TorqueSpeed240V.pdf_tex}
+    \caption{Torque--speed plot of simulation with 240~\V supply.}
+    \label{fig:TorqueSpeed240V}
+\end{figure*}
+\begin{equation} \label{eq:DeltaT}
+    \Delta T = \frac{T_e - T_L}{T_{L\,max}}
+\end{equation}
+
+The electromagentic and load torques were recorded during the simulation at 
+5~\s, and the theoretical full load torque $T_{L\,max}$ was calculated by 
+substituting the nominal speed into Equation~\ref{eq:B}. From these values, the 
+error term for the 1220~\RPM simulation was computed using 
+Equation~\ref{eq:DeltaT}:
 \begin{align*}
-    K \omega &= V - I_a R_a \\
-    \Leftrightarrow~ I_a &= \frac{V - K \omega}{R_a} \\
-    I_a &= \frac{240~\V - (1.65~\Vspr)(122\pi/3~\rps)}{1.5~\Ohm} \\
-    I_a &= 19.466~\A \\
+    \Delta T &= \frac{T_e - T_L}{T_{L\,max}} \\
+    \Delta T &= \frac{31.798~\Nm - 31.664~\Nm}{31.680~\Nm} \\
+    \Delta T &= 0.42333\%
 \end{align*}
 
+Acceptable values for the error term are smaller than 1\%, indicating the motor 
+was capable of matching the full load torque to within an acceptable degree of 
+error. The field winding inductance of 12~\mH, whilst small, is non-zero. The 
+current would require an infinite amount of time to converge on a current where 
+the load torque and electromagentic torque match. The error term can never be 0.
 
-\begin{figure}[h]
+Figure~\vref{fig:TorqueSpeed157V} shows the torque--speed plot for simulation 
+after the supply voltage had been reduced to 157.12~\V in order to achieve a 
+nominal speed of $800~\RPM = 80\pi/3~\rps = 83.776~\rps$. Examining 
+Figure~\ref{fig:TorqueSpeed157V}, the load and electromagnetic torque appeared 
+to converge at the nominal speed---the operating point; they converged in a 
+similar manner to the torque--speed curves in Figure~\ref{fig:TorqueSpeed240V}.
+\begin{figure*}[t]
     \centering
-    \def\svgwidth{\textwidth}
-    \input{img/Results240V.pdf_tex}
-    \caption{Motor properties during simulation.}
-    \label{fig:Results240V}
-\end{figure}
+    \def\svgwidth{0.8\textwidth}
+    \input{img/TorqueSpeed157V.pdf_tex}
+    \caption{Torque--speed plot of simulation with reduced 157.12~\V supply.}
+    \label{fig:TorqueSpeed157V}
+\end{figure*}
 
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{\textwidth}
-    \input{img/Results157V.pdf_tex}
-    \caption{Motor properties during simulation with reduced supply 157.12~\V.}
-    \label{fig:Results157V}
-\end{figure}
+The error term was calculated as before: using the load and electromagenetic 
+torques at 5~\s, and the theoretical full load torque was calculated by 
+substituting the nominal speed into Equation~\ref{eq:B}. Substituting these 
+values into Equation~\ref{eq:DeltaT} yielded the following result:
+\begin{align*}
+    \Delta T &= \frac{T_e - T_L}{T_{L\,max}} \\
+    \Delta T &= \frac{20.817~\Nm - 20.723~\Nm}{20.774~\Nm} \\
+    \Delta T &= 0.42249\%
+\end{align*}
+
+At the reduced speed, the motor was also capable of matching the full load 
+torque to within an acceptable degree of error.
 
 \section{Conclusion}
 
-\textcolor{red}{TODO}
+At low speeds, \DC motors are susceptible to armature damage due to large 
+currents. Whilst motor starter resistance systems were successful in reducing 
+the armature currents while starting the motor, the armature currents are still 
+largest as the motor accelerated up to nominal speed.
+
+Varying the armature supply voltage was an effective method of varying the 
+nominal speed of the \DC motor simulated. The motor used was capable of 
+reaching speeds of 1220~\RPM at 240~\V and 800~\RPM at 157.12~\V whilst 
+matching torque requirements of the electric hoist--type load specified to 
+within an acceptable accuracy of 0.42333\% and 0.42249\% respectfully.
 
 % References.
-\printbibliography[category=cited]
-\DeclareFieldFormat{labelnumberwidth}{#1}
-\printbibliography[
-    notcategory=cited,omitnumbers=true,title={Bibliography}
-]
-
-
-
-\clearpage
-
-% Appendices.
+\printbibliography
 
 \end{document}
