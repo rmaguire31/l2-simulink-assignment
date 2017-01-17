@@ -89,14 +89,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="279.20054"
-     inkscape:cy="337.11505"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="664.57144"
+     inkscape:cy="336.3435"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="720"
+     inkscape:window-width="1920"
+     inkscape:window-height="1032"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -178,25 +178,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="438.01016"
+       x="424.01016"
        y="725.45007"
        id="text16126-82"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan16128-3"
-         x="438.01016"
-         y="725.45007">$R_{st}/2$</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="707.36761"
-       y="725.45007"
-       id="text16126-82-8"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan16128-3-5"
-         x="707.36761"
-         y="725.45007">$R_{st}/2$</tspan></text>
+         x="424.01016"
+         y="725.45007">$\frac{R_{st\,max}}{2}$</tspan></text>
     <path
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 964.89597,645.5459 -72.35745,0"
@@ -210,5 +199,16 @@
        height="48"
        x="429.50235"
        y="752.61023" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:24px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="693.36761"
+       y="725.45007"
+       id="text16126-82-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan16128-3-53"
+         x="693.36761"
+         y="725.45007">$\frac{R_{st\,max}}{2}$</tspan></text>
   </g>
 </svg>
