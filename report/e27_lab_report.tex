@@ -66,17 +66,23 @@
 \graphicspath{{img/}}
 
 % Setup nomenclature.
+\newlength{\nomtitlesep}
+\setlength{\nomtitlesep}{\nomitemsep}
+\setlength{\nomitemsep}{-\parsep}
 \renewcommand\nomgroup[1]{
     \ifthenelse{\equal{#1}{A}}{
-        \item[\textbf{Acronyms}]}{
+        \itemsep\nomtitlesep
+        \item[\textbf{Acronyms}]
+        \itemsep\nomitemsep}{
     \ifthenelse{\equal{#1}{B}}{
-        \item[\textbf{Variables}]}{
+        \itemsep\nomtitlesep
+        \item[\textbf{Variables}]
+        \itemsep\nomitemsep}{
 }}}
-\newcommand{\nomindex}[2][]{
+\newcommand{\nomindex}[1]{
     \hspace*{\fill}
-    \makebox[9em][l]{\ifthenelse{\equal{#1}{}}{#2}{#2~\textbf{or}~#1}}
+    \makebox[5em][l]{#1}
 }
-\renewcommand{\nomitemsep}{0.74\parsep}
 \makenomenclature
 
 % Setup bibiliography.
@@ -106,35 +112,8 @@
     \vspace*{\fill}
 \end{titlepage}
 
-% Contents page.
-\onecolumn
-\pagenumbering{roman}
-
-% Acronyms
-\nomenclature[A0]{\AC}{Alternating current}
-\nomenclature[A1]{\DC}{Direct current}
-\nomenclature[A2]{\EMF}{Electromotive force}
-\nomenclature[A3]{r.p.m.}{Revolutions per minute}
-
-% Variables
-\nomenclature[B00]{$B$}{Load torque constant \nomindex{\Nmspr}}
-\nomenclature[B01]{$E$}{Motor back \EMF \nomindex{\V}}
-\nomenclature[B02]{$I$}{Current \nomindex{\A}}
-\nomenclature[B03]{$J$}{Moment of inertia \nomindex{\kgmm}}
-\nomenclature[B04]{$K$}{Motor \EMF constant \nomindex[\Vspr]{\NmpA}}
-\nomenclature[B05]{$L$}{Inductance \nomindex{\H}}
-\nomenclature[B06]{$N$}{Motor rotational speed \nomindex{\RPM}}
-\nomenclature[B08]{$R$}{Resistance \nomindex{\Ohm}}
-\nomenclature[B09]{$T$}{Torque \nomindex{\Nm}}
-\nomenclature[B10]{$V$}{Supply voltage \nomindex{\V}}
-\nomenclature[B11]{$t$}{Time \nomindex{\s}}
-\nomenclature[B12]{$\omega$}{Motor rotational speed \nomindex{\rps}}
-\nomenclature[BB]{}{\vspace{-1em}\nomindex{}}
-
-\tableofcontents
-\printnomenclature
-
 % Main matter.
+\renewcommand{\abstractname}{\large Abstract}
 \twocolumn[
 \begin{@twocolumnfalse}
     \begin{abstract}
@@ -149,7 +128,29 @@
 \end{@twocolumnfalse}
 \vspace{\parsep}
 ]
-\pagenumbering{arabic}
+
+% Acronyms
+\nomenclature[A0]{\AC}{Alternating current}
+\nomenclature[A1]{\DC}{Direct current}
+\nomenclature[A2]{\EMF}{Electromotive force}
+\nomenclature[A3]{r.p.m.}{Revolutions per minute}
+
+% Variables
+\nomenclature[B00]{$B$}{Load torque constant \nomindex{\Nmspr}}
+\nomenclature[B01]{$E$}{Motor back \EMF \nomindex{\V}}
+\nomenclature[B02]{$I$}{Current \nomindex{\A}}
+\nomenclature[B03]{$J$}{Moment of inertia \nomindex{\kgmm}}
+\nomenclature[B04]{$K$}{Motor \EMF constant \nomindex{\NmpA}\\\nomindex{\Vspr}}
+\nomenclature[B05]{$L$}{Inductance \nomindex{\H}}
+\nomenclature[B06]{$N$}{Motor speed \nomindex{\RPM}}
+\nomenclature[B08]{$R$}{Resistance \nomindex{\Ohm}}
+\nomenclature[B09]{$T$}{Torque \nomindex{\Nm}}
+\nomenclature[B10]{$V$}{Supply voltage \nomindex{\V}}
+\nomenclature[B11]{$t$}{Time \nomindex{\s}}
+\nomenclature[B12]{$\omega$}{Motor speed \nomindex{\rps}}
+\nomenclature[BB]{}{\vspace{-1em}\nomindex{}}
+
+\printnomenclature
 
 \section{Introduction}
 
@@ -257,7 +258,7 @@ the motor were armature current, field current, electromagnetic torque and
 rotational speed.
 \begin{table}[h]
     \centering
-    \small
+    \footnotesize
     \begin{threeparttable}
         \caption{Defining parameters of \DC motor system.\vspace{-1em}}
         \label{table:Parameters}
@@ -403,9 +404,9 @@ Equation~\vref{eq:B} as follows:
 \end{align*}
 
 From the load torque the armature current could be calculated using 
-Equation~\vref{eq:T}. Assuming the motor was able to output enough 
-electromagnetic torque to match the load torque without slipping, the current 
-found would be as follows:
+Equation~\ref{eq:T}. Assuming the motor was able to output enough 
+electromagnetic torque to match the load torque without slipping, the required 
+current would be as follows:
 \begin{align*}
     I_a &= \frac{T_e}{K} \\
     I_a &= \frac{20.774~\Nm}{1.65~\NmpA} \\
@@ -435,7 +436,7 @@ Note the discontinuities at 0.5~\s, 2.5~\s and 3.5~\s; when \SW{1}, \SW{2} and
 \SW{3} were closed.
 \begin{figure*}[t]
     \centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.75\textwidth}
     \input{img/Time240V.pdf_tex}
     \caption{Simulated motor properties against time with 240~\V supply.}
     \label{fig:Time240V}
@@ -479,22 +480,23 @@ converged at the nominal speed of 127.76~\rps---the operating point where there
 was no net torque. The motor error term $\Delta T$ can be used to quantify the 
 capability of the motor matching the full load torque at nominal speed. The 
 error term is given by the following equation:
+\begin{equation} \label{eq:DeltaT}
+    \Delta T = \frac{T_e - T_L}{T_{L\,max}}
+\end{equation}
 \begin{figure*}[t]
     \centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.75\textwidth}
     \input{img/TorqueSpeed240V.pdf_tex}
     \caption{Torque--speed plot of simulation with 240~\V supply.}
     \label{fig:TorqueSpeed240V}
 \end{figure*}
-\begin{equation} \label{eq:DeltaT}
-    \Delta T = \frac{T_e - T_L}{T_{L\,max}}
-\end{equation}
 
 The electromagentic and load torques were recorded during the simulation at 
 5~\s, and the theoretical full load torque $T_{L\,max}$ was calculated by 
 substituting the nominal speed into Equation~\ref{eq:B}. From these values, the 
 error term for the 1220~\RPM simulation was computed using 
-Equation~\ref{eq:DeltaT}:
+Equation~\ref{eq:DeltaT} as follows:
+
 \begin{align*}
     \Delta T &= \frac{T_e - T_L}{T_{L\,max}} \\
     \Delta T &= \frac{31.798~\Nm - 31.664~\Nm}{31.680~\Nm} \\
@@ -505,17 +507,18 @@ Acceptable values for the error term are smaller than 1\%, indicating the motor
 was capable of matching the full load torque to within an acceptable degree of 
 error. The field winding inductance of 12~\mH, whilst small, is non-zero. The 
 current would require an infinite amount of time to converge on a current where 
-the load torque and electromagentic torque match. The error term can never be 0.
+the load torque and electromagentic torque match. The error term can never be 
+zero.
 
-Figure~\vref{fig:TorqueSpeed157V} shows the torque--speed plot for simulation 
-after the supply voltage had been reduced to 157.12~\V in order to achieve a 
-nominal speed of $800~\RPM = 80\pi/3~\rps = 83.776~\rps$. Examining 
+Figure~\vref{fig:TorqueSpeed157V} shows the torque--speed plot for the 
+simulation after the supply voltage had been reduced to 157.12~\V in order to 
+achieve a nominal speed of $800~\RPM = 80\pi/3~\rps = 83.776~\rps$. Examining 
 Figure~\ref{fig:TorqueSpeed157V}, the load and electromagnetic torque appeared 
 to converge at the nominal speed---the operating point; they converged in a 
 similar manner to the torque--speed curves in Figure~\ref{fig:TorqueSpeed240V}.
 \begin{figure*}[t]
     \centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.75\textwidth}
     \input{img/TorqueSpeed157V.pdf_tex}
     \caption{Torque--speed plot of simulation with reduced 157.12~\V supply.}
     \label{fig:TorqueSpeed157V}
@@ -538,14 +541,14 @@ torque to within an acceptable degree of error.
 
 At low speeds, \DC motors are susceptible to armature damage due to large 
 currents. Whilst motor starter resistance systems were successful in reducing 
-the armature currents while starting the motor, the armature currents are still 
-largest as the motor accelerated up to nominal speed.
+the armature currents while starting the motor, the armature currents were 
+still at a maximum as the motor accelerated up to nominal speed.
 
 Varying the armature supply voltage was an effective method of varying the 
 nominal speed of the \DC motor simulated. The motor used was capable of 
-reaching speeds of 1220~\RPM at 240~\V and 800~\RPM at 157.12~\V whilst 
-matching torque requirements of the electric hoist--type load specified to 
-within an acceptable accuracy of 0.42333\% and 0.42249\% respectfully.
+matching the target speeds of 1220~\RPM at 240~\V and 800~\RPM at 157.12~\V 
+whilst meeting torque requirements of the electric hoist--type load specified 
+to within an acceptable accuracy of 0.42333\% and 0.42249\% respectfully.
 
 % References.
 \printbibliography
