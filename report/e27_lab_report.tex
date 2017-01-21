@@ -58,7 +58,7 @@
 \newcommand{\SW}[1]{\textsc{sw\footnotesize#1}\xspace}
 
 % Document info.
-\author{Russell Maguire}
+\author{Z0966990}
 \title{E27 Lab Report}
 \date{\today}
 
@@ -182,10 +182,10 @@ armature current $I_a$ as follows \cite[p.~873]{hughes2010hughes}:
     T_e = K I_a ~\Leftrightarrow~ I_a = \frac{T_e}{K} \\
 \end{equation}
 
-The constant that relates electromagnetic torque is composed of the field 
-current $I_f$ and the coupling inductance between the field and stator windings 
-$L_{af}$ is known as the motor \EMF constant. According to 
-\cite{brigham2016coursework}, it is defined by the following:
+The motor \EMF constant relates electromagnetic torque to armature current and 
+is composed of the field current $I_f$ and the coupling inductance between the 
+field and stator windings $L_{af}$. According to \cite{brigham2016coursework}, 
+it is defined by the following:
 \begin{equation} \label{eq:K}
     K = L_{af} I_f \\
 \end{equation}
@@ -214,7 +214,7 @@ Equation~\ref{eq:K} relates the back \EMF $E$ to the rotational speed $\omega$
 During the initial phase of operation, the rotational speed of the armature is 
 small. As a result---according to Equation~\ref{eq:omega}---the back \EMF is 
 similarly small. As armature windings do not have a large resistance, this 
-results in a potentially damaging current. To compensate the starting 
+results in a potentially damaging current. To compensate, the starting 
 resistance $R_{st}$ in  Figure~\ref{fig:Circuit} is set to some sufficiently 
 large value to limit the current in the armature.
 
@@ -252,15 +252,15 @@ Figure~\vref{fig:Model}.
 The \DC machine was configured with the moment of inertia, resistance and 
 inductance of the armature and field windings given in 
 Table~\vref{table:Parameters}. The electrical inputs for these windings were 
-implemented using external \DC voltage sources; these were also given in 
-Table~\ref{table:Parameters}. For monitoring purposes, the output signals of 
-the motor were armature current, field current, electromagnetic torque and 
-rotational speed.
+implemented using external \DC voltage sources; the magnitudes of which were 
+also given in Table~\ref{table:Parameters}. For monitoring purposes, the output 
+signals of the motor were armature current, field current, electromagnetic 
+torque and speed.
 \begin{table}[h]
     \centering
     \footnotesize
     \begin{threeparttable}
-        \caption{Defining parameters of \DC motor system.\vspace{-1em}}
+        \caption{Defining parameters of \DC motor system.\vspace{-\parsep}}
         \label{table:Parameters}
         \begin{tabular}{@{}llrl@{}}
             \toprule
@@ -308,17 +308,17 @@ Equation~\ref{eq:K}. The calculation yielded the following result:
     K &= 1.65~\Vspr
 \end{align*}
 
-For example, from the motor \EMF constant, the theoretical armature current at 
-nominal speed could be calculated. The nominal speed was given in 
-\cite{brigham2016coursework} as 1220~\RPM; this had to be converted into \rps:
+Using the motor \EMF constant, the theoretical armature current at nominal 
+speed can be calculated. The nominal speed given in 
+\cite{brigham2016coursework} was 1220~\RPM; this had to be converted into \rps:
 \begin{equation*}
     N = 1220~\RPM~\Leftrightarrow~\omega = 122\pi/3~\rps
 \end{equation*}
 
 Equation~\ref{eq:omega} was substituted into Equation~\ref{eq:E} then 
-rearranged to make $I_a$ the subject. Plugging in values from 
-Table~\ref{table:Parameters} and the nominal speed calculated above, the 
-following armature current was calculated:
+rearranged to make $I_a$ the subject. The armature current at nominal speed was 
+found by plugging in values from Table~\ref{table:Parameters} and the nominal 
+speed calculated above, as follows:
 \begin{align*}
     K \omega &= V - I_a R_a \\
     \Leftrightarrow~ I_a &= \frac{V - K \omega}{R_a} \\
@@ -336,9 +336,9 @@ using the following relationship:
 \end{equation}
 
 This was modelled by connecting the speed output of the \DC machine to the 
-torque load input via a constant gain block, configured with multiplicative 
-gain $B$ given in Table~\ref{table:Parameters}. This can be seen in the top 
-right of Figure~\ref{fig:Model}.
+torque load input via a constant gain block, configured with the multiplicative 
+gain $B$ given in Table~\ref{table:Parameters}. The topology of the network can 
+be seen in the top-right of Figure~\ref{fig:Model}.
 
 \subsection{Motor Starter} \label{sec:MotorStarter}
 
@@ -348,7 +348,7 @@ armature winding. Two of the switches were parallel to a resistor, such that
 all current flowed through the resistor when the switch was open: when the 
 switch was closed the current experienced no resistance. 
 Figure~\vref{fig:Starter} shows the circuit diagram of the network implemented, 
-at the start of the simulation.
+with the switches open as they were at the start of the simulation.
 \begin{figure}[h]
     \centering
     \def\svgwidth{0.48\textwidth}
@@ -361,8 +361,8 @@ An ideal switch was used to model \SW{1} and circuit breakers were used to
 model \SW{2} and \SW{3}. These were closed at 0.5~\s, 2.5~\s and 3.5~\s 
 respectively using step blocks; this can be seen in Figure~\vref{fig:Model}. 
 The 0.5~\s delay before powering the armature winding gave the field current 
-and armature mechanics sufficient to stabilise, whilst the other two switches 
-removed the starting resistance in two steps.
+and armature mechanics sufficient time to stabilise, whilst the other two 
+switches removed the starting resistance in two steps.
 
 The starting resistance limited the current flowing through the armature 
 winding---to prevent damage---but the current had to be sufficiently large to 
@@ -387,26 +387,26 @@ configured with half the maximum allowable starting resistance: 3.6197~\Ohm.
 
 \subsection{Variable Speed Operation}
 
-Once the simulation had been run in the state defined in 
-Table~\ref{table:Parameters} at a nominal speed of 1220~\RPM, the effect of 
-varying speed by reducing the supply voltage was tested. The target nominal 
-speed was 800~\RPM, which first had to be converted into \rps:
+The simulation model was also used to test the effectiveness of varying the 
+speed of the motor by reducing the supply voltage. The target nominal speed was 
+800~\RPM, which first had to be converted into \rps before the new supply 
+voltage could be found:
 \begin{equation*}
     N = 800~\RPM~\Leftrightarrow~\omega = 80\pi/3~\rps
 \end{equation*}
 
-The load torque at this speed was found by substituting the speed in \rps into 
-Equation~\vref{eq:B} as follows:
+To achieve a speed of $80\pi/3~\rps$, the motor would have to match load torque 
+exerted by the electric hoist. The load torque at this speed was found by 
+substituting the speed in \rps into Equation~\vref{eq:B} as follows:
 \begin{align*}
     T_L &= B\omega \\
     T_L &= (0.247969~\Nmspr)(80\pi/3~\rps) \\
     T_L &= 20.774~\Nm
 \end{align*}
 
-From the load torque the armature current could be calculated using 
-Equation~\ref{eq:T}. Assuming the motor was able to output enough 
-electromagnetic torque to match the load torque without slipping, the required 
-current would be as follows:
+The armature current required to produce an equivalent amount of 
+electromagnetic torque was found by substituting the load torque into 
+Equation~\ref{eq:T}, as follows:
 \begin{align*}
     I_a &= \frac{T_e}{K} \\
     I_a &= \frac{20.774~\Nm}{1.65~\NmpA} \\
@@ -425,8 +425,8 @@ already started and stabilised.
     V &= 157.12~\V
 \end{align*}
 
-The \DC voltage source for the armature winding was reconfigured with an 
-amplitude of 157.12~\V and the simulation rerun.
+The \DC voltage source for the armature winding was reconfigured with a
+magnitude of 157.12~\V.
 
 \section{Results and Discussion}
 
@@ -457,8 +457,8 @@ increase in armature current:
 \end{equation}
 
 Equation~\ref{eq:Ia} also explains why the torque decayed soon after 
-decreasing. The armature had a rotational inertia of 0.5~\kgmm, so the armature 
-speed lagged the net torque; this was evidenced in 
+each switch was closed. The armature had a rotational inertia of 0.5~\kgmm, so 
+the armature speed lagged the net torque; this was evidenced in 
 Figure~\ref{fig:Time240V}---the rotational speed did not instantly change in 
 reaction to the increase in electromagnetic torque. However, as the armature 
 slowly accelerated, the back \EMF increased according to 
@@ -469,8 +469,8 @@ As the armature speed increased, electromagnetic torque decreased, but the load
 torque increased linearly---see Equation~\ref{eq:B}. The net torque $T_e - T_L$ 
 driving the acceleration of the armature became smaller as the armature reached 
 higher speeds. In Figure~\ref{fig:Time240V} this is apparent as the rate of 
-change of armature speed gets smaller with respect to time. Ideally, the net 
-torque would be zero at the nominal speed $1220~\RPM = 122\pi/3~\rps = 
+change of armature speed became smaller as time progressed. Ideally, the net 
+torque would be zero at the nominal speed: $1220~\RPM = 122\pi/3~\rps = 
 127.76~\rps$. Figure~\ref{fig:Time240V} suggests that by 5~\s, the motor had 
 reached nominal speed.
 
@@ -491,31 +491,24 @@ error term is given by the following equation:
     \label{fig:TorqueSpeed240V}
 \end{figure*}
 
-The electromagentic and load torques were recorded during the simulation at 
-5~\s, and the theoretical full load torque $T_{L\,max}$ was calculated by 
-substituting the nominal speed into Equation~\ref{eq:B}. From these values, the 
-error term for the 1220~\RPM simulation was computed using 
-Equation~\ref{eq:DeltaT} as follows:
-
+Where $T_e$ and $T_L$ were recorded at 5~\s and the full load torque 
+$T_{L\,max}$ was calculated by substituting the nominal speed into 
+Equation~\ref{eq:B}. From these values, the error term for the 1220~\RPM 
+simulation was computed using Equation~\ref{eq:DeltaT} as follows:
 \begin{align*}
     \Delta T &= \frac{T_e - T_L}{T_{L\,max}} \\
     \Delta T &= \frac{31.798~\Nm - 31.664~\Nm}{31.680~\Nm} \\
     \Delta T &= 0.42333\%
 \end{align*}
 
-Acceptable values for the error term are smaller than 1\%, indicating the motor 
-was capable of matching the full load torque to within an acceptable degree of 
-error. The field winding inductance of 12~\mH, whilst small, is non-zero. The 
-current would require an infinite amount of time to converge on a current where 
-the load torque and electromagentic torque match. The error term can never be 
-zero.
-
-Figure~\vref{fig:TorqueSpeed157V} shows the torque--speed plot for the 
-simulation after the supply voltage had been reduced to 157.12~\V in order to 
-achieve a nominal speed of $800~\RPM = 80\pi/3~\rps = 83.776~\rps$. Examining 
-Figure~\ref{fig:TorqueSpeed157V}, the load and electromagnetic torque appeared 
-to converge at the nominal speed---the operating point; they converged in a 
-similar manner to the torque--speed curves in Figure~\ref{fig:TorqueSpeed240V}.
+Acceptable values for the error term are smaller than 1\%, and indicate the 
+motor was capable of matching the full load torque to within an acceptable 
+degree of error. As the error term for this simulation was 0.42333\%, the motor 
+used in the simulation was successful at matching the full load torque. The 
+error term was non-zero because the field winding inductance of 12~\mH, whilst 
+small, was also non-zero. The current would require an infinite amount of time 
+to converge on a value where the load torque and electromagnetic torque match, 
+so in practical applications error terms of zero are impossible.
 \begin{figure*}[t]
     \centering
     \def\svgwidth{0.75\textwidth}
@@ -524,10 +517,14 @@ similar manner to the torque--speed curves in Figure~\ref{fig:TorqueSpeed240V}.
     \label{fig:TorqueSpeed157V}
 \end{figure*}
 
-The error term was calculated as before: using the load and electromagenetic 
-torques at 5~\s, and the theoretical full load torque was calculated by 
-substituting the nominal speed into Equation~\ref{eq:B}. Substituting these 
-values into Equation~\ref{eq:DeltaT} yielded the following result:
+Figure~\vref{fig:TorqueSpeed157V} shows the torque--speed plot for the 
+simulation after the supply voltage had been reduced to 157.12~\V in order to 
+achieve a nominal speed of $800~\RPM = 80\pi/3~\rps = 83.776~\rps$. Examining 
+Figure~\ref{fig:TorqueSpeed157V}, the load and electromagnetic torque appeared 
+to converge at the nominal speed---the operating point; they converged in a 
+similar manner to the torque--speed curves in Figure~\ref{fig:TorqueSpeed240V}.
+
+The error term was calculated as before:
 \begin{align*}
     \Delta T &= \frac{T_e - T_L}{T_{L\,max}} \\
     \Delta T &= \frac{20.817~\Nm - 20.723~\Nm}{20.774~\Nm} \\
@@ -540,15 +537,16 @@ torque to within an acceptable degree of error.
 \section{Conclusion}
 
 At low speeds, \DC motors are susceptible to armature damage due to large 
-currents. Whilst motor starter resistance systems were successful in reducing 
-the armature currents while starting the motor, the armature currents were 
-still at a maximum as the motor accelerated up to nominal speed.
+currents. Whilst the motor starter resistance system was successful in 
+reducing the armature current while starting the motor, the armature current 
+still reached its peak value when the motor was accelerating up to nominal 
+speed.
 
 Varying the armature supply voltage was an effective method of varying the 
-nominal speed of the \DC motor simulated. The motor used was capable of 
-matching the target speeds of 1220~\RPM at 240~\V and 800~\RPM at 157.12~\V 
-whilst meeting torque requirements of the electric hoist--type load specified 
-to within an acceptable accuracy of 0.42333\% and 0.42249\% respectfully.
+nominal speed of the \DC motor. The motor used was capable of matching the 
+target speeds of 1220~\RPM at 240~\V and 800~\RPM at 157.12~\V whilst meeting 
+torque requirements of the electric hoist--type load specified to within an 
+acceptable accuracy of 0.42333\% and 0.42249\% respectfully.
 
 % References.
 \printbibliography
